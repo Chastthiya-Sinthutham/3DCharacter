@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgpfye7kycj7l"]
+
+[ext_resource type="Script" uid="uid://f8ao8n4vb4hn" path="res://asset/node_3d.gd" id="1_7yun0"]
+[ext_resource type="PackedScene" uid="uid://drbfk4hcfvhfl" path="res://asset/Logoman_.tscn" id="1_wddbq"]
+[ext_resource type="Texture2D" uid="uid://m3jaoqyk0dhn" path="res://asset/newscms_thaihealth_c_abeqruvwy367.jpg" id="3_vamhd"]
+[ext_resource type="PackedScene" uid="uid://ctabqwomidkko" path="res://asset/Car.glb" id="4_4ta1r"]
+[ext_resource type="PackedScene" uid="uid://c42m5050mv0nm" path="res://asset/Red Car.glb" id="5_b3sbl"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_be0f1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wddbq"]
+albedo_texture = ExtResource("3_vamhd")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_7yun0")
+
+[node name="Logoman_" parent="." instance=ExtResource("1_wddbq")]
+
+[node name="Logoman_2" parent="." instance=ExtResource("1_wddbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0895, 4.73866, -2.63646)
+
+[node name="Logoman_3" parent="." instance=ExtResource("1_wddbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4725, 3.53212, -1.57066)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999994, 0.00124513, -0.00339148, 0, 0.938734, 0.344643, 0.00361282, -0.344641, 0.938728, 0, 8.61967, 13.0019)
+fov = 81.5625
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.033727, 0, 14.105, 0, 14.105, 0, -14.105, 0, -0.033727, 0, 0, 0)
+mesh = SubResource("PlaneMesh_be0f1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wddbq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.952369, 0.304947, 0, -0.304947, 0.952369, 0, 0, 0)
+
+[node name="Car2" parent="." instance=ExtResource("4_4ta1r")]
+transform = Transform3D(0.146143, 0, 0.0337962, 0, 0.15, 0, -0.0337962, 0, 0.146143, 11.781, 0, -1.78093)
+
+[node name="Red Car" parent="." instance=ExtResource("5_b3sbl")]
+transform = Transform3D(-6.46261, 0, 1.63001, 0, 6.665, 0, -1.63001, 0, -6.46261, -11.6172, 1.79845, -1.12445)
